@@ -25,6 +25,7 @@ pipeline {
              sh 'php artisan db:seed'
              sh 'php artisan key:generate'
       }
+    }
 
     stage('Execute Unit Tests') {
       steps {
@@ -88,6 +89,6 @@ pipeline {
         build job: 'ansible-project/main', parameters: [[$class: 'StringParameterValue', name: 'env', value: 'dev']], propagate: false, wait: true
     }
   }
-  }
-}
+  
+ }
 }
